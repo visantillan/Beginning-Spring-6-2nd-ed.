@@ -20,7 +20,8 @@ public class Configuration10 {
     }
 
     @Bean
-    MusicService musicService(Normalizer bar,
+    MusicService musicService(@Qualifier("bar")
+                              Normalizer bar,
                               @Qualifier("foo")
                               Normalizer baz) {
         return new MusicService4(bar, baz);

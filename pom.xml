@@ -26,7 +26,6 @@
         <module>chapter09-mongo</module>
         <module>chapter10</module>
         <module>chapter10-custom</module>
-        <module>chapter10-jpa</module>
         <module>chapter10-oauth</module>
         <module>chapter11-batch</module>
         <module>chapter11-modulith</module>
@@ -37,7 +36,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <testngVersion>7.8.0</testngVersion>
-        <springFrameworkVersion>6.1.1</springFrameworkVersion>
+        <springFrameworkVersion>6.1.3</springFrameworkVersion>
         <springBootVersion>3.1.1</springBootVersion>
         <springDataBomVersion>2023.0.1</springDataBomVersion>
         <jacksonVersion>2.15.0</jacksonVersion>
@@ -72,6 +71,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>${springFrameworkVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
