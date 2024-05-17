@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,13 +16,13 @@ public class ArtistController {
     }
 
     @GetMapping("/artist/{id}")
-    Artist findArtistById(@PathVariable int id) throws SQLException {
+    Artist findArtistById(@PathVariable("id") int id) throws SQLException {
         return service.findArtistById(id);
     }
 
     @GetMapping({"/artist/search/{name}", "/artist/search/"})
     Artist findArtistByName(
-            @PathVariable(required = false) String name
+            @PathVariable(value = "name", required = false) String name
     ) throws SQLException {
         if (name != null) {
             return service.findArtistByName(name);
@@ -39,7 +38,7 @@ public class ArtistController {
 
     @GetMapping({"/artist/match/{name}", "/artist/match/"})
     List<Artist> findArtistByMatchingName(
-            @PathVariable(required = false)
+            @PathVariable(value = "name", required = false)
             String name
     ) throws SQLException {
         return service.findAllArtistsByName(name != null ? name : "");

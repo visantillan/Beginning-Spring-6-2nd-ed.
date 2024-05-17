@@ -23,27 +23,27 @@ public class SongController {
 
     @GetMapping(value="/artists/{name}/vote/{title}",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    Song voteForSong(@PathVariable String name, @PathVariable String title) {
+    Song voteForSong(@PathVariable("name") String name, @PathVariable("title") String title) {
         return service.voteForSong(decode(name), decode(title));
     }
 
     @GetMapping(value="/artists/{name}/song/{title}",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    Song getSong(@PathVariable String name, @PathVariable String title) {
+    Song getSong(@PathVariable("name") String name, @PathVariable("title") String title) {
         return service.getSong(decode(name), decode(title));
     }
 
     @GetMapping(value="/artists/{name}/songs",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    List<Song> getSongsForArtist(@PathVariable String name) {
+    List<Song> getSongsForArtist(@PathVariable("name") String name) {
         return service.getSongsForArtist(decode(name));
     }
 
     @GetMapping(value={"/artists/{name}/match/{title}",
         "/artists/{name}/match/"},
         produces = MediaType.APPLICATION_JSON_VALUE)
-    List<String> findSongsForArtist(@PathVariable String name,
-                                    @PathVariable(required = false)
+    List<String> findSongsForArtist(@PathVariable("name") String name,
+                                    @PathVariable(value = "title", required = false)
                                         String title) {
         return service.getMatchingSongNamesForArtist(decode(name),
             title != null ? decode(title) : "");

@@ -21,7 +21,7 @@ public class ArtistController {
 
     @GetMapping(value = "/artists/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE)
-    Artist findArtistById(@PathVariable int id) {
+    Artist findArtistById(@PathVariable("id") int id) {
         Artist artist = service.findArtistById(id);
         if (artist != null) {
             return artist;
@@ -37,7 +37,7 @@ public class ArtistController {
     @GetMapping(value = {"/artists/search/{name}", "/artists/search/"},
         produces = MediaType.APPLICATION_JSON_VALUE)
     Artist findArtistByName(
-        @PathVariable(required = false) String name
+        @PathVariable(value = "name", required = false) String name
     ) {
         if (name != null) {
             Artist artist = service.findArtistByNameNoUpdate(decode(name));
@@ -60,7 +60,7 @@ public class ArtistController {
     @GetMapping(value={"/artists/match/{name}", "/artists/match/"},
         produces = MediaType.APPLICATION_JSON_VALUE)
     List<String> findArtistByMatchingName(
-        @PathVariable(required = false)
+        @PathVariable(value = "name", required = false)
             String name
     ) {
         return service.getMatchingArtistNames(name != null ? decode(name) : "");

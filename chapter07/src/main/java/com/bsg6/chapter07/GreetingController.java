@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
     @RequestMapping(value = {"/greeting/{name}", "/greeting/"})
-    Greeting greeting(@PathVariable(required = false) String name) {
+    Greeting greeting(@PathVariable(value = "name", required = false) String name) {
         String object = name != null ? name : "world";
 
         /* Jack Griffin is the name of the "Invisible Man." */

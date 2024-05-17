@@ -35,7 +35,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <testngVersion>7.8.0</testngVersion>
+        <testngVersion>7.10.2</testngVersion>
         <springFrameworkVersion>6.1.3</springFrameworkVersion>
         <springBootVersion>3.1.1</springBootVersion>
         <springDataBomVersion>2023.0.1</springDataBomVersion>
